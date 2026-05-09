@@ -23,9 +23,9 @@ rightMotor.setVelocity(0.0)
 maxSpeed = min(rightMotor.getMaxVelocity(), leftMotor.getMaxVelocity())
 
 # Define the PID control constants and variables.
-KP = 31.4
+KP = 1510
 KI = 100.5
-KD = 0
+KD =9
 integral = 0.0
 previous_position = 0.0
 
@@ -54,10 +54,11 @@ while robot.step(timestep) != -1:
         speed = maxSpeed
     elif speed < -maxSpeed:
         speed = -maxSpeed
-
+ 
     # Set the robot speed (left wheel, right wheel).
     leftMotor.setVelocity(-speed)
     rightMotor.setVelocity(-speed)
 
     # Store previous position for the next controller step.
     previous_position = position
+
